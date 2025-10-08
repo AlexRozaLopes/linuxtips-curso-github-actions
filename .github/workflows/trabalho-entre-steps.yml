@@ -1,0 +1,19 @@
+name: First Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  primeiro-workflow: # cada job e uma maquina virtual dif
+    runs-on: ubuntu-latest
+    steps: # seq de etapas da maquina
+      - name: Criando Arquivo
+        run: echo "criado com sucesso" > msg.txt
+
+      - name: Para Usar Info De Outros Steps Nao Precisa Tar Em Seq
+        run: ls -lha
+
+      - name: Lendo Arquivo Criado
+        run: cat msg.txt
