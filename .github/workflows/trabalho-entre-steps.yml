@@ -1,9 +1,8 @@
 name: trabalho entre steps
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+
 
 jobs:
   primeiro-workflow: # cada job e uma maquina virtual dif
