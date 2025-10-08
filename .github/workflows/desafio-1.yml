@@ -1,3 +1,5 @@
+name: desafio-1
+
 on:
   workflow_dispatch:
     inputs:
