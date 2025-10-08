@@ -4,21 +4,30 @@ on:
   workflow_dispatch:
     inputs:
       imageDocker:
-        description: pesquise a imagem docker
+        description: "Pesquise a imagem Docker"
         required: true
-
+        default: "ubuntu:latest"
 
 jobs:
   desafio-1:
     runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+
     steps:
-      - name: set up docker
+      - name: Set up Docker
         uses: docker/setup-docker-action@v4
 
-      - name: baixar imagem
+      - name: Login no Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Baixar imagem
         run: docker pull ${{ inputs.imageDocker }}
 
-      - name: list image
+      - name: Listar imagens
         run: docker images
 
       - name: Analyze for critical and high CVEs
