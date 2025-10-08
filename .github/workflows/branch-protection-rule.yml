@@ -1,0 +1,14 @@
+name: Ativa quando tiver alguma alteracao nas protection rules
+
+on:
+  branch_protection_rule:
+    types:
+      - created
+      - deleted
+      - edited
+
+jobs:
+  alerta:
+    steps:
+      - name: alertando mudanca
+        run: echo "ouve uma mudanca na protection rules"
