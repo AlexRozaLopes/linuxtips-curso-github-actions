@@ -1,0 +1,16 @@
+name: First Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  primeiro-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First Step
+        run: cat /etc/os-release
+
+      - name: Second Step
+        run: echo "Segundo Step"
